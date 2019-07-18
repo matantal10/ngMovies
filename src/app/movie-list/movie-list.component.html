@@ -1,0 +1,7 @@
+<div>
+  <h1>Now Playing Movies</h1>
+  <hr/>
+  <movie-content [movies]="movies"
+                 [expandedMovie]="movie"
+                 (movieShowDetails)="onMovieShowDetails($event)"></movie-content>
+</div>
