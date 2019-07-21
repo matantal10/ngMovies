@@ -5,13 +5,14 @@ import {Observable} from 'rxjs';
 
 @Injectable()
 export class MoviesService {
-  movies;
+  public movies;
 
   constructor(private http: HttpClient) {
   }
 
   getMovies(): Observable<any> {
-    return this.movies = this.http.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${environment.apiKey}&language=en-US&page=1`);
+    return this.movies =
+      this.http.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${environment.apiKey}&language=en-US&page=1`);
   }
 
   getDetailsMovieById(id: number): Observable<any> {

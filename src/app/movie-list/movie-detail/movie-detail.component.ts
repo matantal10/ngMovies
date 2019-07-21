@@ -24,7 +24,7 @@ export class MovieDetailComponent implements OnInit, OnChanges {
   public expandedElement: IMovieDetail | null;
 
   ngOnInit() {
-    this.columnsToDisplay = ['id', 'runtime', 'genresName'];
+    this.columnsToDisplay = ['id', 'genresName', 'runtime'];
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -32,7 +32,8 @@ export class MovieDetailComponent implements OnInit, OnChanges {
     if (movie && movie.currentValue) {
       this.dataSource = [{
         ...movie.currentValue,
-        genresName: movie.currentValue.genres.map(g => g.name).join(', ')
+        genresName: movie.currentValue.genres.map(g => g.name).join(', '),
+        productionCompanies: movie.currentValue.production_companies.map(p => p.name).join(', ')
       }];
     }
   }

@@ -27,8 +27,6 @@ export class MovieContentComponent implements OnChanges, OnInit {
   public displayedColumns: string[];
   public dataSource: MatTableDataSource<IMovie[]>;
   public expandedElement: null;
-  parentDetails: ['id', 'runtime', 'genresName'];
-
 
   ngOnInit(): void {
     this.displayedColumns = ['title', 'id', 'release_date', 'popularity', 'vote_average'];
