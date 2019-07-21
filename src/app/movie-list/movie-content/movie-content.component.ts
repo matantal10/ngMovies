@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {IMovie} from '../../models/IMovie';
+import {IMovie} from '../movie-models/IMovie';
 import {MatTableDataSource} from '@angular/material';
 import {MatSort} from '@angular/material/sort';
 
@@ -27,6 +27,8 @@ export class MovieContentComponent implements OnChanges, OnInit {
   public displayedColumns: string[];
   public dataSource: MatTableDataSource<IMovie[]>;
   public expandedElement: null;
+  parentDetails: ['id', 'runtime', 'genresName'];
+
 
   ngOnInit(): void {
     this.displayedColumns = ['title', 'id', 'release_date', 'popularity', 'vote_average'];

@@ -1,8 +1,8 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {IMovie} from '../../models/IMovie';
+import {IMovie} from '../movie-models/IMovie';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {MatTableDataSource} from '@angular/material';
-import {IMovieDetail} from '../../models/IMovieDetail';
+import {IMovieDetail} from '../movie-models/IMovieDetail';
 
 @Component({
   selector: 'movie-detail',

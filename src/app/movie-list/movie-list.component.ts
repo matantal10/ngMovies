@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {MoviesService} from '../shared/movies.service';
-import {IMovie} from '../models/IMovie';
+import {MoviesService} from '../shared/services/movies.service';
+import {IMovie} from './movie-models/IMovie';
 import {Subscription} from 'rxjs';
 
 @Component({
@@ -21,7 +21,11 @@ export class MovieListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.fetchMovieList();
+    if (this.movieService.movies) {
+      this.movies = this.movieService.movies;
+    } else {
+      this.fetchMovieList();
+    }
     this.intervalHandler = setInterval(() => {
       this.fetchMovieList();
     }, 30000);
@@ -32,6 +36,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
     this.movieListSubscription = this.movieService.getMovies().subscribe((response: { results: IMovie[] }) => {
       if (response && response.results) {
         this.movies = response.results;
+        this.movieService.movies = this.movies;
       }
     });
   }
